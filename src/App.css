@@ -39,7 +39,18 @@ h3,
   border-bottom: 3px solid var(--border);
   position: sticky;
   top: 0;
+  top: 0;
   z-index: 1000;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text);
+  padding: 0;
 }
 
 .nav-brand {
@@ -485,6 +496,7 @@ h3,
 }
 
 /* Mobile */
+/* Mobile */
 @media (max-width: 900px) {
 
   /* Layout adjustments */
@@ -502,7 +514,6 @@ h3,
 
   .hero-title {
     font-size: 2.2rem;
-    /* Scaled down from 4rem */
     word-break: break-word;
   }
 
@@ -516,7 +527,7 @@ h3,
     width: 100%;
   }
 
-  /* Image Responsiveness - Critical Fix */
+  /* Image Responsiveness */
   .img-wrapper {
     width: 100%;
     max-width: 300px;
@@ -550,7 +561,7 @@ h3,
     gap: 40px;
   }
 
-  /* Grids - Force single column */
+  /* Grids */
   .experience-grid,
   .project-grid {
     grid-template-columns: 1fr;
@@ -575,39 +586,67 @@ h3,
     gap: 15px;
   }
 
-  /* Navigation - Stacked for Mobile */
+  /* Navigation - Stacked for Mobile with Toggle */
   .navbar {
     padding: 15px 20px;
     flex-wrap: wrap;
-    gap: 15px;
+    justify-content: space-between;
   }
 
   .nav-brand {
     font-size: 1.2rem;
   }
 
+  .menu-toggle {
+    display: block;
+    /* Show hamburger */
+  }
+
   .nav-links {
-    display: flex;
-    /* Ensure visible */
+    display: none;
+    /* Hidden by default */
     width: 100%;
-    justify-content: space-between;
-    gap: 10px;
-    overflow-x: auto;
-    /* Allow scrolling if tight */
-    padding-bottom: 5px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    margin-top: 15px;
+    border-top: 2px solid var(--border);
+    animation: slideDown 0.3s ease-out;
+  }
+
+  .nav-links.open {
+    display: flex;
+    /* Show when open */
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .nav-item {
     display: block;
-    /* Show buttons */
-    font-size: 0.8rem;
-    padding: 5px 8px;
-    flex-shrink: 0;
+    font-size: 1.2rem;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px dotted #ccc;
   }
 
   .nav-cta {
-    font-size: 0.8rem;
-    padding: 6px 12px;
+    font-size: 1rem;
+    padding: 10px 30px;
+    margin-top: 10px;
     white-space: nowrap;
+    width: 100%;
+    text-align: center;
   }
 }

@@ -4,6 +4,7 @@ import profileImage from './assets/image.png'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
@@ -18,17 +19,29 @@ function App() {
       {/* Navigation Bar */}
       <nav className="navbar">
         <div className="nav-brand">SAJIB.DEV</div>
-        <div className="nav-links">
+
+        <button
+          className="menu-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation"
+        >
+          {menuOpen ? '✕' : '☰'}
+        </button>
+
+        <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
           {['Home', 'Experience', 'Projects', 'Research', 'Achievements'].map((item) => (
             <button
               key={item}
               className={`nav-item ${activeSection === item.toLowerCase() ? 'active' : ''}`}
-              onClick={() => scrollToSection(item.toLowerCase())}
+              onClick={() => {
+                scrollToSection(item.toLowerCase())
+                setMenuOpen(false)
+              }}
             >
               {item.toUpperCase()}
             </button>
           ))}
-          <a href="mailto:sajibsaha3464@gmail.com" className="nav-cta">HIRE ME</a>
+          <a href="mailto:sajibsaha3464@gmail.com" className="nav-cta" onClick={() => setMenuOpen(false)}>HIRE ME</a>
         </div>
       </nav>
 
