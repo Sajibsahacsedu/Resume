@@ -486,47 +486,128 @@ h3,
 
 /* Mobile */
 @media (max-width: 900px) {
+
+  /* Layout adjustments */
   .hero-section {
     flex-direction: column-reverse;
-    /* Image on top */
     text-align: center;
     padding: 40px 20px;
+    min-height: auto;
+    gap: 40px;
+  }
+
+  .hero-content {
+    width: 100%;
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    /* Scaled down from 4rem */
+    word-break: break-word;
   }
 
   .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn {
     justify-content: center;
+    width: 100%;
+  }
+
+  /* Image Responsiveness - Critical Fix */
+  .img-wrapper {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+
+  .decorative-circle {
+    width: 100px;
+    height: 100px;
+    top: -10px;
+    right: -10px;
+  }
+
+  .decorative-dots {
+    bottom: -15px;
+    left: -15px;
+  }
+
+  /* Sections */
+  .section-block {
+    padding: 60px 20px;
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
   }
 
   .split-layout {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
+  /* Grids - Force single column */
+  .experience-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .xp-card,
+  .project-card {
+    padding: 20px;
+  }
+
+  /* Footer */
+  .footer-retro {
+    padding: 60px 20px;
+  }
+
+  .footer-content h3 {
+    font-size: 2rem;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Navigation - Stacked for Mobile */
   .navbar {
     padding: 15px 20px;
+    flex-wrap: wrap;
+    gap: 15px;
   }
 
-  .nav-links {
-    display: none;
-    /* simple hide for cleaner demo, or hamburger? Let's just keep 'HIRE ME' */
+  .nav-brand {
+    font-size: 1.2rem;
   }
 
-  /* Quick mobile nav fix for this demo */
   .nav-links {
     display: flex;
+    /* Ensure visible */
+    width: 100%;
+    justify-content: space-between;
     gap: 10px;
-    font-size: 0.8rem;
+    overflow-x: auto;
+    /* Allow scrolling if tight */
+    padding-bottom: 5px;
   }
 
   .nav-item {
-    display: none;
+    display: block;
+    /* Show buttons */
+    font-size: 0.8rem;
+    padding: 5px 8px;
+    flex-shrink: 0;
   }
 
   .nav-cta {
     font-size: 0.8rem;
     padding: 6px 12px;
+    white-space: nowrap;
   }
 }
