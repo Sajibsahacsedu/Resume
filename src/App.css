@@ -496,6 +496,106 @@ h3,
 }
 
 /* Mobile */
+/* Terminal Aesthetic */
+.terminal-window {
+  background: #1a1b26;
+  border: 3px solid #000;
+  border-radius: 8px;
+  box-shadow: 8px 8px 0 #000;
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+  position: relative;
+  z-index: 5;
+}
+
+.terminal-header {
+  background: #24283b;
+  padding: 10px 15px;
+  border-bottom: 2px solid #000;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+
+.dot.red {
+  background: #ff5f56;
+}
+
+.dot.yellow {
+  background: #ffbd2e;
+}
+
+.dot.green {
+  background: #27c93f;
+}
+
+.terminal-title {
+  color: #565f89;
+  font-size: 0.8rem;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.terminal-body {
+  padding: 20px;
+  color: #a9b1d6;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.command {
+  margin-bottom: 15px;
+}
+
+.prompt {
+  color: #7aa2f7;
+  margin-right: 8px;
+}
+
+.output {
+  color: #9ece6a;
+  display: block;
+  white-space: pre-wrap;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background: #9ece6a;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Mobile adjustments for Terminal */
+@media (max-width: 900px) {
+  .terminal-window {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+}
+
 /* Mobile */
 @media (max-width: 900px) {
 
@@ -649,4 +749,358 @@ h3,
     width: 100%;
     text-align: center;
   }
+}
+
+/* MACHINE UPGRADES */
+
+/* 1. Cyber Grid Background */
+.retro-container {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(18, 18, 18, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 18, 18, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* 2. CRT Scanlines Overlay */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.1));
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+}
+
+/* 3. Glitch Effect for Logo */
+.glitch {
+  position: relative;
+  display: inline-block;
+  color: var(--text);
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 #ff00c1;
+  clip-path: inset(44% 0 56% 0);
+  animation: glitch-anim 5s infinite;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -1px 0 #00fff9;
+  clip-path: inset(44% 0 56% 0);
+  animation: glitch-anim2 5s infinite;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip-path: inset(61% 0 52% 0);
+    transform: skew(0.98deg);
+  }
+
+  5% {
+    clip-path: inset(38% 0 47% 0);
+    transform: skew(0.04deg);
+  }
+
+  10% {
+    clip-path: inset(48% 0 98% 0);
+    transform: skew(0.57deg);
+  }
+
+  15% {
+    clip-path: inset(9% 0 91% 0);
+    transform: skew(0.35deg);
+  }
+
+  20% {
+    clip-path: inset(2% 0 12% 0);
+    transform: skew(0.53deg);
+  }
+
+  25% {
+    clip-path: inset(47% 0 16% 0);
+    transform: skew(0.54deg);
+  }
+
+  30% {
+    clip-path: inset(63% 0 2% 0);
+    transform: skew(0.57deg);
+  }
+
+  35% {
+    clip-path: inset(98% 0 42% 0);
+    transform: skew(0.39deg);
+  }
+
+  40% {
+    clip-path: inset(25% 0 11% 0);
+    transform: skew(0.18deg);
+  }
+
+  45% {
+    clip-path: inset(81% 0 21% 0);
+    transform: skew(0.68deg);
+  }
+
+  50% {
+    clip-path: inset(51% 0 20% 0);
+    transform: skew(0.97deg);
+  }
+
+  55% {
+    clip-path: inset(81% 0 7% 0);
+    transform: skew(0.06deg);
+  }
+
+  60% {
+    clip-path: inset(96% 0 57% 0);
+    transform: skew(0.79deg);
+  }
+
+  65% {
+    clip-path: inset(44% 0 57% 0);
+    transform: skew(0.19deg);
+  }
+
+  70% {
+    clip-path: inset(26% 0 30% 0);
+    transform: skew(0.81deg);
+  }
+
+  75% {
+    clip-path: inset(25% 0 54% 0);
+    transform: skew(0.77deg);
+  }
+
+  80% {
+    clip-path: inset(26% 0 52% 0);
+    transform: skew(0.19deg);
+  }
+
+  85% {
+    clip-path: inset(10% 0 78% 0);
+    transform: skew(0.82deg);
+  }
+
+  90% {
+    clip-path: inset(92% 0 14% 0);
+    transform: skew(0.09deg);
+  }
+
+  95% {
+    clip-path: inset(15% 0 79% 0);
+    transform: skew(0.81deg);
+  }
+
+  100% {
+    clip-path: inset(3% 0 58% 0);
+    transform: skew(0.25deg);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip-path: inset(94% 0 2% 0);
+    transform: skew(0.61deg);
+  }
+
+  5% {
+    clip-path: inset(96% 0 14% 0);
+    transform: skew(0.95deg);
+  }
+
+  10% {
+    clip-path: inset(20% 0 94% 0);
+    transform: skew(0.64deg);
+  }
+
+  100% {
+    clip-path: inset(79% 0 21% 0);
+    transform: skew(0.04deg);
+  }
+}
+
+/* INTRO OVERLAY */
+.intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.intro-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-text {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .intro-text {
+    font-size: 1.5rem;
+  }
+}
+
+/* ANIMATION SUITE v2 (Beautiful & Elegant) */
+
+/* 1. Static Cyber Grid with Pulse */
+.retro-container {
+  /* No scrolling movement - fixed for reliability */
+  background-position: center;
+  animation: grid-pulse 8s ease-in-out infinite;
+}
+
+@keyframes grid-pulse {
+  0% {
+    transform: scale(1);
+    filter: brightness(100%);
+  }
+
+  50% {
+    transform: scale(1.01);
+    filter: brightness(120%);
+  }
+
+  /* Very subtle breath */
+  100% {
+    transform: scale(1);
+    filter: brightness(100%);
+  }
+}
+
+/* 2. Floating Terminal (Kept - it's elegant) */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(0.5deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.terminal-window {
+  animation: float 8s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(35, 166, 213, 0.3);
+  /* Add soft glow */
+}
+
+/* 3. Staggered Entrance (Kept) */
+.hero-content>* {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.loaded .hero-content>* {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.loaded .hero-badge {
+  transition-delay: 0.2s;
+}
+
+.loaded .hero-title {
+  transition-delay: 0.4s;
+}
+
+.loaded .hero-bio {
+  transition-delay: 0.6s;
+}
+
+.loaded .hero-actions {
+  transition-delay: 0.8s;
+}
+
+/* 4. Beautiful Card Hover Glow */
+.xp-card,
+.project-card,
+.skill-pill {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.xp-card:hover,
+.project-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 10px 10px 0 var(--border), 0 0 20px var(--primary-pink);
+  z-index: 10;
+}
+
+/* 5. Neon Pulse for Highlights */
+@keyframes neon-pulse {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 144, 232, 0.5);
+  }
+
+  50% {
+    text-shadow: 0 0 20px rgba(255, 144, 232, 0.8), 0 0 10px rgba(255, 144, 232, 0.6);
+  }
+
+  100% {
+    text-shadow: 0 0 5px rgba(255, 144, 232, 0.5);
+  }
+}
+
+.highlight-pink {
+  animation: neon-pulse 3s infinite;
+}
+
+/* Pop-in Effect */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.pop-in {
+  animation: popIn 0.6s ease-out forwards;
 }

@@ -2,9 +2,58 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import profileImage from './assets/image.png'
 
+const Terminal = () => {
+  const [text, setText] = useState('')
+  const fullText = "Building intelligent systems with style..."
+
+  useEffect(() => {
+    let index = 0
+    const interval = setInterval(() => {
+      setText(fullText.slice(0, index))
+      index++
+      if (index > fullText.length) clearInterval(interval)
+    }, 100)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="terminal-window">
+      <div className="terminal-header">
+        <div className="dot red"></div>
+        <div className="dot yellow"></div>
+        <div className="dot green"></div>
+        <div className="terminal-title">sajib@dev:~/portfolio</div>
+      </div>
+      <div className="terminal-body">
+        <div className="command">
+          <span className="prompt">sajib@dev:~$</span>
+          <span>whoami</span>
+        </div>
+        <div className="command">
+          <span className="output">{'>'} AI Engineer</span>
+          <span className="output">{'>'} Full-Stack Developer</span>
+          <span className="output">{'>'} Problem Solver</span>
+        </div>
+        <div className="command">
+          <span className="prompt">sajib@dev:~$</span>
+          <span className="typing-text">{text}</span>
+          <span className="cursor"></span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [menuOpen, setMenuOpen] = useState(false)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2200) // 2.2s intro
+    return () => clearTimeout(timer)
+  }, [])
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
@@ -15,10 +64,16 @@ function App() {
   }
 
   return (
-    <div className="retro-container">
+    <div className={`retro-container ${loading ? '' : 'loaded'}`}>
+      {/* Intro Overlay */}
+      <div className={`intro-overlay ${loading ? '' : 'fade-out'}`}>
+        <div className="intro-text glitch" data-text="SYSTEM INITIALIZING...">SYSTEM INITIALIZING...</div>
+      </div>
+
+      <div className="scanlines"></div>
       {/* Navigation Bar */}
       <nav className="navbar">
-        <div className="nav-brand">SAJIB.DEV</div>
+        <div className="nav-brand glitch" data-text="SAJIB.DEV">SAJIB.DEV</div>
 
         <button
           className="menu-toggle"
@@ -67,11 +122,7 @@ function App() {
           </div>
         </div>
         <div className="hero-visual">
-          <div className="img-wrapper">
-            <img src={profileImage} alt="Sajib Saha" />
-            <div className="decorative-circle"></div>
-            <div className="decorative-dots"></div>
-          </div>
+          <Terminal />
         </div>
       </header>
 
