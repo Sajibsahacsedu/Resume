@@ -620,11 +620,25 @@ h3,
   .hero-actions {
     flex-direction: column;
     width: 100%;
+    align-items: center;
+    /* Center items */
+    gap: 15px;
+    /* Add gap between buttons */
   }
 
   .btn {
     justify-content: center;
-    width: 100%;
+    width: auto;
+    /* Allow auto width */
+    min-width: 200px;
+    /* Setup min width for consistency */
+    max-width: 90%;
+    /* Prevent overflow */
+    margin: 0 auto;
+    /* Center horizontally */
+    transform: none !important;
+    /* Disable offset shift on mobile if any */
+    padding: 12px 20px;
   }
 
   /* Image Responsiveness */
