@@ -44,6 +44,25 @@ const Terminal = () => {
   )
 }
 
+const ViewCounter = () => {
+  const [count, setCount] = useState(null)
+
+  useEffect(() => {
+    fetch('https://api.counterapi.dev/v1/sajibsahacsedu/resume/up')
+      .then(res => res.json())
+      .then(data => setCount(data.count))
+      .catch(err => console.error("Counter Error:", err))
+  }, [])
+
+  if (count === null) return null
+
+  return (
+    <div className="view-counter">
+      <span className="label">VISITS:</span>
+      <span className="count">{count.toString().padStart(6, '0')}</span>
+    </div>
+  )
+}
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
@@ -292,6 +311,7 @@ function App() {
             <a href="https://www.linkedin.com/in/sajib-saha-32159728a">LINKEDIN</a>
           </div>
           <div className="copyright">© {new Date().getFullYear()} SAJIB SAHA_</div>
+          <ViewCounter />
         </div>
       </footer>
     </div>
