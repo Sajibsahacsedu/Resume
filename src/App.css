@@ -1144,3 +1144,12 @@ h3,
   letter-spacing: 2px;
   text-shadow: 0 0 5px var(--primary-cyan);
 }
+
+.theme-purple {
+  border-left: 5px solid #bd93f9;
+}
+
+.theme-purple h2 {
+  color: #bd93f9;
+  text-shadow: 4px 4px 0 #000;
+}

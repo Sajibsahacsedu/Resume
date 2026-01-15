@@ -103,7 +103,7 @@ function App() {
         </button>
 
         <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
-          {['Home', 'Experience', 'Projects', 'Research', 'Achievements'].map((item) => (
+          {['Home', 'Experience', 'Education', 'Projects', 'Research', 'Achievements'].map((item) => (
             <button
               key={item}
               className={`nav-item ${activeSection === item.toLowerCase() ? 'active' : ''}`}
@@ -172,6 +172,30 @@ function App() {
               <div className="tags">
                 <span>Computer Vision</span><span>JavaScript</span>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Education Section */}
+        <section id="education" className="section-block theme-purple">
+          <div className="section-header">
+            <h2>EDUCATION</h2>
+            <div className="line-decoration"></div>
+          </div>
+
+          <div className="experience-grid">
+            <div className="xp-card">
+              <div className="xp-date">JAN 2022 — DEC 2025</div>
+              <h3>University of Dhaka</h3>
+              <div className="xp-company">B.Sc. in Computer Science and Engineering</div>
+              <p>Relevant Coursework: Data Structures, Algorithms, Databases, Machine Learning, Computer Networks, Software Engineering</p>
+            </div>
+
+            <div className="xp-card">
+              <div className="xp-date">JUL 2018 — APR 2020</div>
+              <h3>Government Rajendra College, Faridpur</h3>
+              <div className="xp-company">Higher Secondary Certificate (HSC)</div>
+              <p>Relevant Coursework: Mathematics, Physics, Chemistry, C Programming</p>
             </div>
           </div>
         </section>
